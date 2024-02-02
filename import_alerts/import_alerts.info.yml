@@ -1,0 +1,7 @@
+type: module
+name: Import Alerts
+description: 'Import Alerts'
+package: apl_dev
+core_version_requirement: '>=9.1'
+dependencies:
+  - drupal:migrate

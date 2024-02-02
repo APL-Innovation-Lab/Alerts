@@ -1,0 +1,38 @@
+langcode: en
+status: true
+id: import_alert_zones
+migration_tags:
+  - taxonomy
+migration_group: apl_dev
+label: Import Alert Zones
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls:
+    - 'public://import_alert_zones/import_alert_zones.json'
+  fields:
+    -
+      name: tid
+      selector: tid
+    -
+      name: name
+      selector: name
+  ids:
+    tid:
+      type: integer
+process:
+  vid:
+    plugin: default_value
+    default_value: alert_zone
+  name: name
+  tid: tid
+  sticky:
+    plugin: default_value
+    default_value: 0
+  uid:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }
